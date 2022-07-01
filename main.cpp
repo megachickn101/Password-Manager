@@ -7,7 +7,7 @@
 
 using namespace std;
 
-vector<string> get_account(string input) {
+vector<string> get_account(string& input) {
     ifstream account_info_file;
     account_info_file.open("accounts.csv");
     string line;
@@ -65,7 +65,7 @@ void read_accounts(){
     account_info_file.close();
 }
 
-void write_list(vector<vector<string>> account_info_input){
+void write_list(vector<vector<string>>& account_info_input){
     ofstream account_info_file;
     account_info_file.open("accounts.csv");
     for(int i=0; i < account_info_input.size(); i++){
@@ -74,7 +74,7 @@ void write_list(vector<vector<string>> account_info_input){
     account_info_file.close();
 }
 
-void update_list(string account_input, string email_input, string password_input){
+void update_list(string& account_input, string& email_input, string& password_input){
     ofstream account_info_file;
     account_info_file.open("accounts.csv", ios::app);
     account_info_file << account_input<< ',' << email_input << ',' << password_input << endl;
